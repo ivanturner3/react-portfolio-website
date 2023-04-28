@@ -1,12 +1,13 @@
 .container.contact__container {
-    width: 58%;
-    display: grid;
-    grid-template-columns: 30% 58%;
-    gap: 12%;
+    width: 60%;
+    display: flex;
+    align-items: stretch;
+    gap: 10%;
 }
 
 .contact__options {
     display: flex;
+    flex: 0.5;
     flex-direction: column;
     gap: 1.2rem;
 }
@@ -40,6 +41,7 @@
 
 form {
     display: flex;
+    flex: 1;
     flex-direction: column;
     gap: 1.2rem;
 }
@@ -47,6 +49,7 @@ form {
 input, 
 textarea {
     width: 100%;
+    height: auto;
     padding: 1.5rem;
     border-radius: 0.5rem;
     background: transparent;
@@ -55,10 +58,15 @@ textarea {
     color: var(--color-white);
 }
 
+textarea {
+    height: 100%;
+}
+
 /* ============== Media Queries (Medium devices) ========== */
 
 @media screen and (max-width: 1024px) {
     .container.contact__container {
+        display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
     }

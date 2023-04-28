@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './testimonials.css';
 import avatar1 from '../../assets/robo-hand.jpg';
 import avatar2 from '../../assets/robo-hand.jpg';
 import avatar3 from '../../assets/robo-hand.jpg';
 import avatar4 from '../../assets/robo-hand.jpg';
-import {Pagination} from 'swiper';
+import {Autoplay, Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -34,6 +34,12 @@ const data = [
 ]
 
 const Testimonials = () => {
+  const progressCircle = useRef(null);
+  const progressContent = useRef(null);
+  const onAutoplayTimeLeft = (s, time, progress) => {
+    progressCircle.current.style.setProperty('--progress', 1 - progress);
+    progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+  };
   return (
     <section id='testimonials'>
       <h5>Reviews from clients</h5>
@@ -41,10 +47,15 @@ const Testimonials = () => {
 
       <Swiper className="container testimonials__container"
       // install Swiper modules
-      modules={[Pagination]}
+      modules={[Autoplay, Pagination]}
       spaceBetween={40}
       slidesPerView={1}
-      pagination={{ clickable: true}}>
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: true,
+      }}
+      pagination={{ clickable: true}}
+      onAutoplayTimeLeft={onAutoplayTimeLeft}>
         {
           data.map(({avatar, name, review}, index) => {
             return (
@@ -58,7 +69,12 @@ const Testimonials = () => {
             )
           })
         }
-        
+        <div className="autoplay-progress" slot="container-end">
+          <svg viewBox="0 0 48 48" ref={progressCircle}>
+            <circle cx="24" cy="24" r="20"></circle>
+          </svg>
+          <span ref={progressContent}></span>
+        </div>
       </Swiper>
     </section>
   )

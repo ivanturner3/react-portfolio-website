@@ -1,6 +1,5 @@
 .container.testimonials__container {
-    width: 40%;
-    padding-bottom: 4rem;
+    width: 50%;
 }
 
 .client__avatar {
@@ -9,7 +8,7 @@
     overflow: hidden;
     border-radius: 50%;
     margin: 0 auto 1rem;
-    border: 0.4rem solid var(--color-primary-variant);
+    border: 0.25rem solid var(--color-primary-variant);
 }
 
 .testimonial {
@@ -30,6 +29,36 @@
 
 .swiper-pagination-clickable .swiper-pagination-bullet {
     background: var(--color-primary);
+}
+
+.autoplay-progress {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--color-primary);
+  }
+
+.autoplay-progress svg {
+    --progress: 0;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    stroke-width: 4px;
+    stroke: var(--color-primary);
+    fill: none;
+    stroke-dashoffset: calc(125.6 * (1 - var(--progress)));
+    stroke-dasharray: 125.6;
+    transform: rotate(-90deg);
 }
 
 /* ============== Media Queries (Medium devices) ========== */

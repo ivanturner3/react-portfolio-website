@@ -1,13 +1,9 @@
 import React from 'react'
 import './footer.css'
-import {FaFacebookF} from 'react-icons/fa'
-import {FiInstagram} from 'react-icons/fi'
-import {IoLogoTwitter} from 'react-icons/io'
-
-const date = new Date()
-const year = date.getFullYear()
+import {BsLinkedin, BsGithub, BsFacebook} from 'react-icons/bs'
 
 const Footer = () => {
+  const year = new Date().getFullYear();
   return (
     <footer>
       <a href="#" className="footer__logo">Ivan Turner</a>
@@ -17,20 +13,22 @@ const Footer = () => {
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        {/*<li><a href="#portfolio">Portfolio</a></li>*/}
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
       <div className="footer__socials">
-        <a href="https://facebook.com"><FaFacebookF/></a>
-        <a href="https://instagram.com"><FiInstagram/></a>
-        <a href="https://twitter.com"><IoLogoTwitter/></a>
+        <a href='https://www.facebook.com/ivanmturner3' target='_blank'><BsFacebook/></a>
+        <a href='https://www.linkedin.com/in/ivanturner/' target='_blank'><BsLinkedin /></a>
+        <a href='https://github.com/ivanturner3' target='_blank'><BsGithub/></a>
       </div>
 
       <div className="footer__copyright">
-        <small>&copy; {year} Ivan Turner. All rights reserved.</small>
+        <small>&copy;{year} Ivan Turner. All rights reserved.</small>
       </div>
+
+      <a href='#' className='to__top'>Back to Top</a>
     </footer>
   )
 }

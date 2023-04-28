@@ -1,6 +1,6 @@
 header {
     height: 100vh;
-    padding-top: 7rem;
+    padding-top: 2.5rem;
     overflow: hidden;
 }
 
@@ -13,7 +13,7 @@ header {
 /* ========= CTA ========= */
 
 .cta {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     display: flex;
     gap: 1.2rem;
     justify-content: center;
@@ -42,14 +42,16 @@ header {
 
 .me {
     background: linear-gradient(var(--color-primary), transparent);
-    width: 22rem;
-    height: 30rem;
+    width: auto;
+    max-width: 30rem;
+    min-width: 30%;
+    height: auto;
     position: absolute;
-    left: calc(50% - 11rem);
-    margin-top: 4rem;
-    border-radius: 12rem 12rem 0 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 2rem;
+    border-radius: 50%;
     overflow: hidden;
-    padding: 5rem 1.5rem 1.5rem 1.5rem
 }
 
 /* ======== Scroll Down ======= */
@@ -67,11 +69,17 @@ header {
 
 @media screen and (max-width: 1024px) {
     header {
-        height: 68vh;
+        height: 85vh;
+        padding-top: 1.5rem;
     }
     
     section {
         margin-top: 6rem;
+    }
+
+    .me{
+        min-width: 50%;
+
     }
 }
 
@@ -79,10 +87,29 @@ header {
 
 @media screen and (max-width: 600px) {
     header {
-        height: 100vh;
+        height: 90vh;
     }
     
-    .header__socials, .scroll__down {
+    .header__socials {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.8rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 3.5rem;
+    }
+    
+    .header__socials::after {
         display: none;
+    }
+    
+    .scroll__down {
+        display: none;
+    }
+
+    .me {
+        min-width: 80%;
     }
 }

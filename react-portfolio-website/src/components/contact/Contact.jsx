@@ -28,23 +28,23 @@ const Contact = () => {
             <MdOutlineEmail className='contact__option-icon'/>
             <h4>Email</h4>
             <h5>ivanturneriii@gmail.com</h5>
-            <a href="mailto:ivanturneriii@gmail.com" target="_blank">Send a message</a>
-          </article>
-          <article className="contact__option">
-            <RiMessengerLine className='contact__option-icon'/>
-            <h4>Facebook Messenger</h4>
-            <h5>Ivan Turner</h5>
-            <a href="https://m.me/ivanmturner3" target="_blank">Send a message</a>
+            <a href="mailto:ivanturneriii@gmail.com" target="_blank">Send me an email</a>
           </article>
           <article className="contact__option">
             <BsWhatsapp className='contact__option-icon'/>
             <h4>Phone</h4>
             <h5>302-528-3783</h5>
-            <a href="tel:3025283783" target="_blank">Send a message</a>
+            <a href="tel:3025283783" target="_blank">Give me a call</a>
+          </article>
+          <article className="contact__option">
+            <RiMessengerLine className='contact__option-icon'/>
+            <h4>Facebook Messenger</h4>
+            <h5>Ivan Turner</h5>
+            <a href="https://m.me/ivanmturner3" target="_blank">Shoot me a message</a>
           </article>
         </div>
         <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name='name' placeholder='Your Full Name' required />
+          <input type="text" name='name' placeholder='Your Name' required />
           <input type="email" name='email' placeholder='Your Email' required />
           <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
           <button type='submit' className='btn btn-primary'>Send Message</button>

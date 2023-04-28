@@ -11,12 +11,12 @@
 }
 
 :root{
-    --color-bg: #1f1f38;
-    --color-bg-variant: #2c2c6c;
-    --color-primary: #4db5ff;
-    --color-primary-variant: rgba(77,181,255,0.4);
+    --color-bg: #1f3820;
+    --color-bg-variant: #0a372c;
+    --color-primary: #A0DB8E;
+    --color-primary-variant: rgba(43, 150, 75, 0.4);
     --color-white: #fff;
-    --color-light: rgba(255,255,255,0.6);
+    --color-light: rgba(255,255,255,0.7);
 
     --transition: all 400ms ease;
 
@@ -33,13 +33,32 @@ html {
     display: none;
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
-    background: var(--color-bg);
     color: var(--color-white);
     line-height: 1.7;
-    background-image: url(../src/assets/bg-water.jpg);
-}
+    background: linear-gradient(to bottom right, #346446 0%, #395461 100%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
 
 /* ================== General Styles ==============*/
 
@@ -123,7 +142,7 @@ img {
     }
     
     section {
-        margin-top: 6rem;
+        margin-top: 5rem;
     }
 }
 
@@ -135,6 +154,10 @@ img {
     }
     
     section {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    section > h2 {
+        margin-bottom: 1rem;
     }
 }
