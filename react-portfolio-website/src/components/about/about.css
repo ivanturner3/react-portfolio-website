@@ -6,6 +6,7 @@
 
 .about__me {
     width: 100%;
+    height: 100%;
     aspect-ratio: 1/1;
     border-radius:  2rem;
     background: linear-gradient(
@@ -21,7 +22,7 @@
 .about__me-image {
     border-radius: 2rem;
     overflow: hidden;
-    transform: rotate(10deg);
+    transform: rotate(9deg);
     transition: var(--transition);
 }
 
@@ -32,7 +33,7 @@
 .about__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .about__card {
@@ -69,6 +70,7 @@
 .about__content p {
     margin: 2rem 0 2.6rem;
     color: var(--color-light);
+    text-align: justify;
 }
 
 /* ============== Media Queries (Medium devices) ========== */
@@ -81,7 +83,8 @@
 
     .about__me {
         width: 50%;
-        margin: 2rem auto 4rem;
+        height: 95%;
+        margin: 0 auto 2rem;
     }
 
     .about__content p {
@@ -93,12 +96,13 @@
 
 @media screen and (max-width: 600px) {
     .about__me {
-        width: 65%;
+        width: 100%;
+        height: auto;
         margin: 0 auto 2rem;
     }
 
     .about__cards {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 

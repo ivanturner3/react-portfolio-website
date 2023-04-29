@@ -1,6 +1,6 @@
 header {
     height: 100vh;
-    padding-top: 2.5rem;
+    padding-top: 2.25rem;
     overflow: hidden;
 }
 
@@ -13,7 +13,7 @@ header {
 /* ========= CTA ========= */
 
 .cta {
-    margin-top: 2rem;
+    margin-top: 1.25rem;
     display: flex;
     gap: 1.2rem;
     justify-content: center;
@@ -43,15 +43,16 @@ header {
 .me {
     background: linear-gradient(var(--color-primary), transparent);
     width: auto;
-    max-width: 30rem;
+    max-width: 100%;
     min-width: 30%;
     height: auto;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 2rem;
+    margin-top: 1.75rem;
     border-radius: 50%;
     overflow: hidden;
+    
 }
 
 /* ======== Scroll Down ======= */

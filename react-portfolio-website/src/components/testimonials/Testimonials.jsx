@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import './testimonials.css';
-import avatar1 from '../../assets/robo-hand.jpg';
-import avatar2 from '../../assets/robo-hand.jpg';
-import avatar3 from '../../assets/robo-hand.jpg';
-import avatar4 from '../../assets/robo-hand.jpg';
+import avatar1 from '../../assets/kev.png';
+import avatar2 from '../../assets/jill.png';
+import avatar3 from '../../assets/lebron.png';
+import avatar4 from '../../assets/zack.png';
 import {Autoplay, Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
@@ -13,23 +13,23 @@ import 'swiper/css/pagination';
 const data = [
   {
     avatar: avatar1,
-    name: 'Client Name 1',
-    review: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima distinctio aliquid ducimus corrupti iure excepturi? Facere modi explicabo dolor beatae recusandae quia a accusamus!'
+    name: 'Kevin Shay',
+    review: '"'+"I've never met anyone who can eat more chicken wings than Ivan. He's a true wing-eating champion. Oh, and I guess he is pretty good with computers too."+'"'
   },
   {
     avatar: avatar2,
-    name: 'Client Name 2',
-    review: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima distinctio aliquid ducimus corrupti iure excepturi? Facere modi explicabo dolor beatae recusandae quia a accusamus!'
+    name: 'Jillian Mondrone',
+    review: '"'+"There's no one I know that is more trustworthy than Ivan... except maybe our dogs. At least I can hear them sneaking into the kitchen to eat all the bacon while I'm working."+'"'
   },
   {
     avatar: avatar3,
-    name: 'Client Name 3',
-    review: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima distinctio aliquid ducimus corrupti iure excepturi? Facere modi explicabo dolor beatae recusandae quia a accusamus!'
+    name: 'LeBron James',
+    review: '"'+"It's rare to see someone eat forty-seven jalapeños without crying. Taco Tuesdays at Ivan's house are the best!"+'"'
   },
   {
     avatar: avatar4,
-    name: 'Client Name 4',
-    review: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima distinctio aliquid ducimus corrupti iure excepturi? Facere modi explicabo dolor beatae recusandae quia a accusamus!'
+    name: 'Zack Hanna',
+    review: '"'+"If you're ever in need of someone to dance the Macarena at your wedding, Ivan is your guy. Just don't ask him to do the Electric Slide."+'"'
   },
 ]
 
@@ -42,7 +42,7 @@ const Testimonials = () => {
   };
   return (
     <section id='testimonials'>
-      <h5>Reviews from clients</h5>
+      <h5>Defintely not fake</h5>
       <h2>Testimonials</h2>
 
       <Swiper className="container testimonials__container"

@@ -1,65 +1,77 @@
-.services__container {
+.skills__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
 }
 
-.service {
-    background: var(--color-bg-variant);
-    border-radius: 0 0 2rem 2rem;
-    border: 1px solid var(--color-primary);
+.skill {
+    background: transparent;
+    border-radius: 2rem;
+    border: 1px solid var(--color-primary-variant);
     height: fit-content;
     transition: var(--transition);
 }
 
-.service:hover {
-    background: transparent;
-    border-color: var(--color-primary-variant);
+.skill:hover {
+    background: var(--color-bg-variant);
+    border-color: var(--color-primary);
     cursor: default;
 }
 
-.service__head {
+.skill__head {
     background: var(--color-primary);
     padding: 2rem;
-    border-radius: 0 0 2rem 2rem;
+    border-radius: 2rem;
     box-shadow: 0 2rem 1rem rgba(0, 0, 0, 0.1);
 }
 
-.service__head h3 {
+.skill__head h3 {
     color: var(--color-bg);
     font-size: 1rem;
+    font-weight: 600;
     text-align: center;
 }
 
-.service__list {
+.skill__list {
+    max-height: 100%;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    transition: max-height 1.5s ease-out;
 }
 
-.service__list li {
+.skill__list.visible{
+    max-height: 100%;
+    transition: max-height 1.5s ease-in;
+}
+
+.skill__list li {
     display: flex;
     gap: 1rem;
     margin-bottom: 0.8rem;
 }
 
-.service__list-icon {
+.skill__list-icon {
     color: var(--color-primary);
     margin-top: 2px;
+    flex-shrink: 0;
 }
 
-.service__list p {
+.skill__list p {
     font-size: 0.9rem;
-
 }
+
 
 /* ============== Media Queries (Medium devices) ========== */
 
 @media screen and (max-width: 1024px) {
-    .services__container {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+    .skill__container {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.5rem;
     }
 
-    .service {
+    .skill {
         height: auto;
     }
 }
@@ -67,7 +79,7 @@
 /* ============== Media Queries (Small devices) ========== */
 
 @media screen and (max-width: 600px) {
-    .services__container {
+    .skills__container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
