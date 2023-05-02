@@ -1,7 +1,10 @@
 header {
     height: 100vh;
-    padding-top: 2.25rem;
-    overflow: hidden;
+    /* overflow: hidden; */
+}
+
+header section {
+    margin-top: 2.25rem;
 }
 
 .header__container {
@@ -70,12 +73,12 @@ header {
 
 @media screen and (max-width: 1024px) {
     header {
-        height: 85vh;
-        padding-top: 1.5rem;
+        height: 65vh;
+        padding-top: 1rem;
     }
     
     section {
-        margin-top: 6rem;
+        margin-top: 8rem;
     }
 
     .me{
@@ -99,7 +102,7 @@ header {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        bottom: 3.5rem;
+        bottom: 5.25rem;
     }
     
     .header__socials::after {

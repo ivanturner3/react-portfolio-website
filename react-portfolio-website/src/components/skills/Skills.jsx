@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import './skills.css';
 import { BiCheck } from 'react-icons/bi';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
@@ -7,7 +7,7 @@ const Skills = () => {
   const [frontEndVisible, setFrontEndVisible] = useState(false);
   const [backEndVisible, setBackEndVisible] = useState(false);
   const [universalSkillsVisible, setUniversalSkillsVisible] = useState(false);
-
+ 
   function toggleFrontEnd() {
     setFrontEndVisible(!frontEndVisible);
   }
@@ -20,6 +20,17 @@ const Skills = () => {
     setUniversalSkillsVisible(!universalSkillsVisible);
   }
 
+  // Use the useLayoutEffect hook to set initial state of dropdowns based on screen size
+  useLayoutEffect(() => {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth >= 600) {
+      setFrontEndVisible(true);
+      setBackEndVisible(true);
+      setUniversalSkillsVisible(true);
+    }
+  }, []);
+
   return (
     <section id='skills'>
       <h5>Not just a pretty face</h5>
@@ -31,9 +42,7 @@ const Skills = () => {
             <h3>Front End</h3>
             <h3>{frontEndVisible ? <FaChevronUp /> : <FaChevronDown />}</h3>
           </div>
-
-          {frontEndVisible && (
-            <ul className={`skill__list ${frontEndVisible ? 'visible' : ''}`}>
+            <ul className={`skill__list ${frontEndVisible ? 'active' : 'inactive'}`}>
               <li>
                 <BiCheck className="skill__list-icon" />
                 <p>HTML</p>
@@ -55,16 +64,13 @@ const Skills = () => {
                 <p>JQuery</p>
               </li>
             </ul>
-          )}
         </article>
         <article className='skill'>
           <div className="skill__head" onClick={toggleBackEnd}>
             <h3>Back End</h3>
             <h3>{backEndVisible ? <FaChevronUp /> : <FaChevronDown />}</h3>
           </div>
-
-          {backEndVisible && (
-            <ul className={`skill__list ${backEndVisible ? 'visible' : ''}`}>
+            <ul className={`skill__list ${backEndVisible ? 'active' : 'inactive'}`}>
               <li>
                 <BiCheck className="skill__list-icon" />
                 <p>Python</p>
@@ -86,16 +92,13 @@ const Skills = () => {
                 <p>Node.js</p>
               </li>
             </ul>
-          )}
         </article>
         <article className='skill'>
           <div className="skill__head" onClick={toggleUniversalSkills}>
             <h3>Universal Skills</h3>
             <h3>{universalSkillsVisible ? <FaChevronUp /> : <FaChevronDown />}</h3>
           </div>
-
-          {universalSkillsVisible && (
-            <ul className={`skill__list ${universalSkillsVisible ? 'visible' : ''}`}>
+            <ul className={`skill__list ${universalSkillsVisible ? 'active' : 'inactive'}`}>
               <li>
                 <BiCheck className="skill__list-icon" />
                 <p>Automated Testing</p>
@@ -117,7 +120,6 @@ const Skills = () => {
                 <p>Visual Studio Code</p>
               </li>
             </ul>
-          )}
         </article>
       </div>
     </section>

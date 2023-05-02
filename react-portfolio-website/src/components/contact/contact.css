@@ -22,7 +22,7 @@
 }
 
 .contact__option:hover {
-    background: transparent;
+    background: rgba(160, 219, 142, 0.05);
     border-color: var(--color-primary-variant);
 }
 
@@ -52,7 +52,7 @@ textarea {
     height: auto;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    background: transparent;
+    background: rgba(160, 219, 142, 0.05);
     border: 2px solid var(--color-primary-variant);
     resize: none;
     color: var(--color-white);
@@ -69,6 +69,10 @@ textarea {
         display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    form .btn {
+        width: 100%;
     }
 }
 

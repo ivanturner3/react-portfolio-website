@@ -1,75 +1,107 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './nav.css';
-import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai';
-import { BiBook, BiMessageSquareDetail } from 'react-icons/bi';
-import { RiServiceLine } from 'react-icons/ri';
+import { AiOutlineHome, AiOutlineStar } from 'react-icons/ai';
+import { BiUserCircle, BiMailSend } from 'react-icons/bi';
+import { GiSkills } from 'react-icons/gi';
 
 const Nav = () => {
-  const [activeNav, setActiveNav] = useState('#');
-  const navRef = useRef(null);
-
-  // Intersection Observer callback function
-  const handleIntersection = (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setActiveNav(`#${entry.target.id}`);
-      }
-    });
-  };
-
-  // useEffect hook to set up Intersection Observer
+  const [activeLink, setActiveLink] = useState('#');
+  
   useEffect(() => {
-    const observer = new IntersectionObserver(handleIntersection, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5,
-    });
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('section');
+      const scrollPosition = window.pageYOffset;
+      const viewportHeight = window.innerHeight;
 
-    const sections = navRef.current.querySelectorAll('section');
-   
+      if (scrollPosition <= 700) {
+        setActiveLink('home');
+        return;
+      }
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+      sections.forEach((section) => {
+        const { top, bottom } = section.getBoundingClientRect();
+        const halfViewportHeight = viewportHeight / 2;
 
-    // Clean up observer on unmount
+        if (top < halfViewportHeight && bottom > halfViewportHeight) {
+          setActiveLink(section.id);
+          window.history.pushState(null, '', ("#"+section.id));
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
     return () => {
-      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    setActiveLink(event.currentTarget.getAttribute('href'));
+    let target = event.target;
+  
+    while (target && target.tagName !== 'A') {
+      target = target.parentNode;
+    }
+  
+    if (target && target.getAttribute('href')) {
+      target = target.getAttribute('href');
+      console.log(target);
+      window.history.pushState(null, '', target);
+      setTimeout(() => {
+        const section = document.querySelector(target);
+        if (section) {
+          window.scrollTo({
+            top: section.offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      }, 10);
+    }
+  };
+
   return (
-    <nav ref={navRef}>
-      <a href="#" onClick={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}>
+    <nav>
+      <a 
+        href="#home"
+        // id="home"
+        onClick={handleClick} 
+        className={activeLink === 'home' ? 'active' : ''}
+      >
         <AiOutlineHome />
       </a>
       <a
         href="#about"
-        onClick={() => setActiveNav('#about')}
-        className={activeNav === '#about' ? 'active' : ''}
+        //id="about"
+        onClick={handleClick}
+        className={activeLink === 'about' ? 'active' : ''}
       >
-        <AiOutlineUser />
+        <BiUserCircle />
       </a>
       <a
         href="#skills"
-        onClick={() => setActiveNav('#skills')}
-        className={activeNav === '#skills' ? 'active' : ''}
+        //id="skills"
+        onClick={handleClick}
+        className={activeLink === 'skills' ? 'active' : ''}
       >
-        <BiBook />
+        <GiSkills />
       </a>
       <a
         href="#testimonials"
-        onClick={() => setActiveNav('#testimonials')}
-        className={activeNav === '#testimonials' ? 'active' : ''}
+        //id="testimonials"
+        onClick={handleClick}
+        className={activeLink === 'testimonials' ? 'active' : ''}
       >
-        <RiServiceLine />
+        <AiOutlineStar />
       </a>
       <a
         href="#contact"
-        onClick={() => setActiveNav('#contact')}
-        className={activeNav === '#contact' ? 'active' : ''}
+        //id="contact"
+        onClick={handleClick}
+        className={activeLink === 'contact' ? 'active' : ''}
       >
-        <BiMessageSquareDetail />
+        <BiMailSend />
       </a>
     </nav>
   );

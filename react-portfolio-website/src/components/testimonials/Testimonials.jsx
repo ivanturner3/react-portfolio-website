@@ -42,7 +42,7 @@ const Testimonials = () => {
   };
   return (
     <section id='testimonials'>
-      <h5>Defintely not fake</h5>
+      <h5>Totally Real*</h5>
       <h2>Testimonials</h2>
 
       <Swiper className="container testimonials__container"
@@ -52,7 +52,8 @@ const Testimonials = () => {
       slidesPerView={1}
       autoplay={{
         delay: 5000,
-        disableOnInteraction: true,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
       }}
       pagination={{ clickable: true}}
       onAutoplayTimeLeft={onAutoplayTimeLeft}>
@@ -76,6 +77,7 @@ const Testimonials = () => {
           <span ref={progressContent}></span>
         </div>
       </Swiper>
+      <h5 className='disclaimer'>*Disclaimer: The examples above are for illustrative purposes only. If you have a genuine testimonial to share, please use the contact form below to share it with me. I would be delighted to add it to this section.</h5>
     </section>
   )
 }
