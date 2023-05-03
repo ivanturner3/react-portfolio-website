@@ -7,10 +7,9 @@ import Testimonials from './components/testimonials/Testimonials'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
 
-
 const App = () => {
   return (
-    <>
+      <>
         <Header />
         <Nav />
         <About />
@@ -18,7 +17,7 @@ const App = () => {
         <Testimonials />
         <Contact />
         <Footer />
-    </>
+      </>
   )
 }
 

@@ -14,22 +14,22 @@ const data = [
   {
     avatar: avatar1,
     name: 'Kevin Shay',
-    review: '"'+"I've never met anyone who can eat more chicken wings than Ivan. He's a true wing-eating champion. Oh, and I guess he is pretty good with computers too."+'"'
+    review: "\"I've never met anyone who can eat more chicken wings than Ivan. He's a true wing-eating champion. Oh, and I guess he is pretty good with computers too.\""
   },
   {
     avatar: avatar2,
     name: 'Jillian Mondrone',
-    review: '"'+"There's no one I know that is more trustworthy than Ivan... except maybe our dogs. At least I can hear them sneaking into the kitchen to eat all the bacon while I'm working."+'"'
+    review: "\"There's no one I know that is more trustworthy than Ivan... except maybe our dogs. At least I can hear them sneaking into the kitchen to eat all the bacon while I'm working.\""
   },
   {
     avatar: avatar3,
     name: 'LeBron James',
-    review: '"'+"It's rare to see someone eat forty-seven jalapeños without crying. Taco Tuesdays at Ivan's house are the best!"+'"'
+    review: "\"It's rare to see someone eat forty-seven jalapeños without crying. Taco Tuesdays at Ivan's house are the best!\""
   },
   {
     avatar: avatar4,
     name: 'Zack Hanna',
-    review: '"'+"If you're ever in need of someone to dance the Macarena at your wedding, Ivan is your guy. Just don't ask him to do the Electric Slide."+'"'
+    review: "\"If you're ever in need of someone to dance the Macarena at your wedding, Ivan is your guy. Just don't ask him to do the Electric Slide.\""
   },
 ]
 

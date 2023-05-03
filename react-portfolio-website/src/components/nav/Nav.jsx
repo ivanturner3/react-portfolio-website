@@ -24,7 +24,6 @@ const Nav = () => {
 
         if (top < halfViewportHeight && bottom > halfViewportHeight) {
           setActiveLink(section.id);
-          window.history.pushState(null, '', ("#"+section.id));
         }
       });
     };
@@ -47,8 +46,6 @@ const Nav = () => {
   
     if (target && target.getAttribute('href')) {
       target = target.getAttribute('href');
-      console.log(target);
-      window.history.pushState(null, '', target);
       setTimeout(() => {
         const section = document.querySelector(target);
         if (section) {
@@ -62,7 +59,7 @@ const Nav = () => {
   };
 
   return (
-    <nav>
+    <nav role="navigation" aria-label="Main">
       <a 
         href="#home"
         // id="home"
