@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './nav.css';
-import { AiOutlineHome, AiOutlineStar } from 'react-icons/ai';
-import { BiUserCircle, BiMailSend } from 'react-icons/bi';
+import { AiOutlineHome } from 'react-icons/ai';
+import { BiMailSend } from 'react-icons/bi'
+import { BsPersonCircle, BsStarFill } from 'react-icons/bs';
 import { GiSkills } from 'react-icons/gi';
 
 const Nav = () => {
@@ -74,7 +75,7 @@ const Nav = () => {
         onClick={handleClick}
         className={activeLink === 'about' ? 'active' : ''}
       >
-        <BiUserCircle />
+        <BsPersonCircle />
       </a>
       <a
         href="#skills"
@@ -90,7 +91,7 @@ const Nav = () => {
         onClick={handleClick}
         className={activeLink === 'testimonials' ? 'active' : ''}
       >
-        <AiOutlineStar />
+        <BsStarFill />
       </a>
       <a
         href="#contact"

@@ -57,6 +57,10 @@
     margin-bottom: 1rem;
 }
 
+.about__icon path {
+    stroke:var(--color-primary);
+  }
+
 .about__card h5 {
     font-size: 0.95rem;
 }

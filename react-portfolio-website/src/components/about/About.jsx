@@ -1,9 +1,9 @@
 import React from 'react'
 import './about.css'
 import fam from '../../assets/whole-fam.png'
-import {FaAward} from 'react-icons/fa'
+import {GrWorkshop} from 'react-icons/gr'
 import {TbCertificate} from 'react-icons/tb'
-import {VscFolderLibrary} from 'react-icons/vsc'
+import {GiStairsGoal} from 'react-icons/gi'
 
 const About = () => {
   return (
@@ -21,7 +21,7 @@ const About = () => {
         <div className="about__content">
           <div className="about__cards">
             <article className='about__card'>
-              <FaAward className='about__icon' />
+              <GrWorkshop className='about__icon' />
               <h5>Experienced</h5>
               <small>More than 4 years working in IT</small>
             </article>
@@ -31,7 +31,7 @@ const About = () => {
               <small>Proficient with the latest tools & tech</small>
             </article>
             <article className='about__card'>
-              <VscFolderLibrary className='about__icon' />
+              <GiStairsGoal className='about__icon' />
               <h5>Ambitious</h5>
               <small>Each day is a new opportunity to grow</small>
             </article>
