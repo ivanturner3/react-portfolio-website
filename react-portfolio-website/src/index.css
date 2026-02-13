@@ -1,5 +1,28 @@
+/**
+ * Global Styles - Portfolio Website
+ * 
+ * This stylesheet defines the global styles, CSS variables, and responsive
+ * design patterns for the entire portfolio website.
+ * 
+ * Key Features:
+ * - CSS Custom Properties (variables) for theming
+ * - Dark and Light theme support
+ * - Responsive container widths
+ * - Smooth transitions and animations
+ * - Typography hierarchy
+ * - Button styles with hover effects
+ * - Mobile-first responsive design
+ * 
+ * Theme Implementation:
+ * The site uses a data-theme attribute on the document root to switch
+ * between dark and light modes. CSS variables are redefined for light mode.
+ */
+
+/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
+/* ============== CSS Reset ============== */
+/* Reset browser defaults for consistent styling across browsers */
 * {
     margin: 0;
     padding: 0;
@@ -10,25 +33,56 @@
     text-decoration: none;
 }
 
+/* ============== CSS Variables (Dark Theme - Default) ============== */
 :root{
-    --color-bg: #1f3820;
-    --color-bg-variant: #0a372c;
-    --color-primary: #A0DB8E;
-    --color-primary-variant: rgba(43, 150, 75, 0.4);
-    --color-white: #fff;
-    --color-light: rgba(255,255,255,0.7);
+    /* Color Palette */
+    --color-bg: #0f1419;                          /* Primary background */
+    --color-bg-variant: #1a1f2e;                  /* Secondary background */
+    --color-primary: #00d4ff;                     /* Brand color (cyan) */
+    --color-primary-variant: rgba(0, 212, 255, 0.15); /* Semi-transparent primary */
+    --color-white: #ffffff;                       /* Text color */
+    --color-light: rgba(255,255,255,0.825);      /* Muted text */
+    --color-accent: #ff006e;                      /* Accent color (magenta) */
 
-    --transition: all 400ms ease;
+    /* Animation */
+    --transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); /* Smooth easing */
 
-    --container-width-lg: 75%;
-    --container-width-md: 86%;
-    --container-width-sm: 90%;
+    /* Responsive Container Widths */
+    --container-width-lg: 75%;    /* Large screens (desktop) */
+    --container-width-md: 86%;    /* Medium screens (tablet) */
+    --container-width-sm: 90%;    /* Small screens (mobile) */
 }
 
+/* ============== Light Mode Theme ============== */
+/* Override CSS variables when light mode is active */
+[data-theme="light"] {
+    --color-bg: #e8eaed;                          /* Light gray background */
+    --color-bg-variant: #f5f6f7;                  /* Lighter variant */
+    --color-primary: #0096c7;                     /* Darker cyan for contrast */
+    --color-primary-variant: rgba(0, 150, 199, 0.15);
+    --color-white: #0a0e14;                       /* Dark text on light bg */
+    --color-light: rgba(10, 14, 20, 0.85);       /* Muted dark text */
+    --color-accent: #d00059;                      /* Darker magenta */
+}
+
+/* Apply light background to body in light mode */
+[data-theme="light"] body {
+    background: #e8eaed;
+}
+
+/* Apply gradient background to header in light mode */
+[data-theme="light"] header {
+    background: linear-gradient(135deg, #f5f6f7 0%, #dce4e8 100%);
+}
+
+/* ============== Base HTML & Body Styles ============== */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;  /* Smooth scrolling for anchor links */
+    /* Offset scroll position to account for sticky nav */
+    scroll-padding-top: clamp(40px, 5vw, 60px);
 }
 
+/* Hide scrollbar for cleaner look */
 ::-webkit-scrollbar{
     display: none;
 }
@@ -36,128 +90,228 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--color-white);
-    line-height: 1.7;
-    background: linear-gradient(to bottom right, #346446 0%, #395461 100%);
-    animation: gradient 15s ease infinite;
-    background-size: 400% 400%;
-  }
-  
-  @keyframes gradient {
-    0% {
-      background-position: 0% 0%;
-    }
-    25% {
-      background-position: 100% 0%;
-    }
-    50% {
-      background-position: 100% 100%;
-    }
-    75% {
-      background-position: 0% 100%;
-    }
-    100% {
-      background-position: 0% 0%;
-    }
-  }
+    line-height: 1.7;  /* Comfortable reading line height */
+    background: #0f1419;
+}
 
-/* ================== General Styles ==============*/
+/* ============== General Reusable Styles ============== */
 
+/* Container for content, responsive width */
 .container{
     width: var(--container-width-lg);
     margin: 0 auto;
 }
 
+/* Typography Hierarchy */
 h1,
 h2,
 h3,
 h4,
 h5 {
-    font-weight: 500;
+    font-weight: 600;
+    line-height: 1.2;  /* Tighter line height for headings */
 }
 
 h1 {
     font-size: 2.5rem;
 }
 
-section {
-    margin-top: 8rem;
+h2 {
+    font-size: 2rem;
 }
 
+h3 {
+    font-size: 1.4rem;
+}
+
+h4 {
+    font-size: 1.1rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+/* Section Styles */
+section {
+    margin-top: 8rem;  /* Vertical spacing between sections */
+}
+
+/* Section headings - centered with consistent styling */
 section > h2, section > h5 {
     text-align: center;
     color: var(--color-light);
+    margin-bottom: 1rem;
 }
 
 section > h2 {
     color: var(--color-primary);
     margin-bottom: 3rem;
+    font-size: 2.5rem;
+    letter-spacing: -1px;  /* Tighten letter spacing for impact */
 }
 
+section > h5 {
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 2px;  /* Wide letter spacing for emphasis */
+}
+
+/* Muted text color utility class */
 .text-light {
     color: var(--color-light);
 }
 
+/* ============== Link Styles ============== */
 a{
     color: var(--color-primary);
     transition: var(--transition);
+    position: relative;
 }
 
 a:hover {
     color: var(--color-white);
 }
 
+/* ============== Button Styles ============== */
+/* Base button with hover animation */
 .btn {
     width: max-content;
     display: inline-block;
     color: var(--color-primary);
-    padding: 0.75rem 1.2rem;
-    border-radius: 0.4rem;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;  /* Pill-shaped buttons */
     cursor: pointer;
-    border: 1px solid var(--color-primary);
+    border: 2px solid var(--color-primary);
+    transition: var(--transition);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;  /* Hide pseudo-element overflow */
+}
+
+/* Animated background fill effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;  /* Start off-screen */
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    z-index: -1;
     transition: var(--transition);
 }
 
 .btn:hover {
-    background: var(--color-white);
+    background: var(--color-primary);
     color: var(--color-bg);
-    border-color: transparent;
+    border-color: var(--color-primary);
+    transform: translateY(-3px);  /* Lift effect */
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);  /* Subtle glow */
 }
 
+.btn:hover::before {
+    left: 0;  /* Slide in from left */
+}
+
+/* Primary button variant - pre-filled background */
 .btn-primary {
     background: var(--color-primary);
     color: var(--color-bg);
+    border-color: var(--color-primary);
 }
 
+.btn-primary::before {
+    background: var(--color-accent);  /* Different hover color */
+    left: 100%;  /* Start from right for variety */
+}
+
+.btn-primary:hover {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border-color: var(--color-accent);
+}
+
+.btn-primary:hover::before {
+    left: 0;  /* Slide in from right */
+}
+
+/* ============== Image Styles ============== */
 img {
     display: block;
     width: 100%;
-    object-fit: cover;
+    object-fit: cover;  /* Maintain aspect ratio */
 }
 
-/* ============== Media Queries (Medium devices) ========== */
+/* ============== Responsive Design - Media Queries ============== */
 
+/* Medium Devices (Tablets, large phones in landscape) */
+/* Breakpoint: 1024px and below */
 @media screen and (max-width: 1024px) {
+    /* Adjust container width for tablets */
     .container {
         width: var(--container-width-md);
     }
     
+    /* Reduce section spacing */
     section {
-        margin-top: 5rem;
+        margin-top: 6rem;
+    }
+
+    section > h2 {
+        margin-bottom: 2rem;
+    }
+
+    /* Scale down heading sizes */
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
     }
 }
 
-/* ============== Media Queries (Small devices) ========== */
-
+/* Small Devices (Mobile phones) */
+/* Breakpoint: 600px and below */
 @media screen and (max-width: 600px) {
+    /* Maximize container width on mobile */
     .container {
         width: var(--container-width-sm);
     }
     
+    /* Further reduce section spacing */
     section {
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;
+        margin-top: 4rem;
     }
 
     section > h2 {
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+    }
+
+    section > h5 {
+        font-size: 0.8rem;
+    }
+
+    /* Further scale down headings for mobile */
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    /* Slightly smaller body text */
+    .text-light {
+        font-size: 0.9rem;
     }
 }

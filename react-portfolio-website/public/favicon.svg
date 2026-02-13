@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <defs>
+    <linearGradient id="themeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ff006e;stop-opacity:0.6" />
+    </linearGradient>
+    <style>
+      .text { font-family: Arial, sans-serif; font-size: 170px; font-weight: bold; fill: #ffffff; stroke: #000000; stroke-width: 2; text-anchor: middle; }
+    </style>
+  </defs>
+  <!-- Dark base background -->
+  <rect width="180" height="180" fill="#0f1419"/>
+  <!-- Gradient overlay -->
+  <rect width="180" height="180" fill="url(#themeGradient)"/>
+  <!-- IT Text perfectly centered -->
+  <text class="text" x="90" y="25" dominant-baseline="hanging">IT</text>
+</svg>
