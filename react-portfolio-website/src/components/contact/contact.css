@@ -67,6 +67,15 @@
     font-weight: 500;
 }
 
+.contact__option h5 a {
+    color: var(--color-primary);
+    transition: var(--transition);
+}
+
+.contact__option h5 a:hover {
+    color: var(--color-white);
+}
+
 .contact__option-icon {
     font-size: 2rem;
     color: var(--color-primary);

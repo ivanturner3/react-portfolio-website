@@ -149,8 +149,11 @@ footer a:hover {
 
     .to__top {
         position: relative;
+        right: auto;
+        bottom: auto;
         padding: 0.4rem 0.8rem;
-        margin-top: 1rem;
+        margin: 1rem auto 0;
         font-size: 0.75rem;
+        display: inline-block;
     }
 }

@@ -103,7 +103,7 @@ const Contact = () => {
           <article className="contact__option">
             <MdOutlineEmail className='contact__option-icon'/>
             <h4>Email</h4>
-            <h5>ivanturneriii@gmail.com</h5>
+            <h5><a href="mailto:ivanturneriii@gmail.com" target="_blank" rel="noreferrer noopener">ivanturneriii@gmail.com</a></h5>
             <a href="mailto:ivanturneriii@gmail.com" target="_blank" rel="noreferrer noopener">Send me an email</a>
           </article>
           
@@ -111,7 +111,7 @@ const Contact = () => {
           <article className="contact__option">
             <BsWhatsapp className='contact__option-icon'/>
             <h4>Phone</h4>
-            <h5>302-528-3783</h5>
+            <h5><a href="tel:3025283783" target="_blank" rel="noreferrer noopener">302-528-3783</a></h5>
             <a href="tel:3025283783" target="_blank" rel="noreferrer noopener">Give me a call</a>
           </article>
           
@@ -119,7 +119,7 @@ const Contact = () => {
           <article className="contact__option">
             <FaLinkedin className='contact__option-icon'/>
             <h4>LinkedIn</h4>
-            <h5>Ivan Turner</h5>
+            <h5><a href="https://linkedin.com/in/ivanturner" target="_blank" rel="noreferrer noopener">Ivan Turner</a></h5>
             <a href="https://linkedin.com/in/ivanturner" target="_blank" rel="noreferrer noopener">Connect with me</a>
           </article>
         </div>
